@@ -154,3 +154,19 @@ Paste this token in the Dashboard login screen.
 - Use RBAC policies to secure access.
 - For Windows WSL2, access the dashboard from the Windows browser.
 - For production access, consider Ingress with TLS and authentication middleware.
+
+# ✅  Using the Cluster
+
+## Running a Pod
+To run a simple Alpine-based pod in your Kubernetes cluster (like in Kind), follow these steps:
+
+```
+kubectl run alpine --image=alpine --restart=Never --command -- sleep 3600
+```
+This creates a temporary pod named alpine using the alpine image that sleeps for 1 hour.
+
+Then, to open a shell inside it:
+```
+kubectl exec -it alpine -- sh
+```
+If sh doesn't work, try ash (Alpine shell).
